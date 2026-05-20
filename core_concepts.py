@@ -15,6 +15,12 @@ def demo_basic_chain(question:str = "Default question"):
     model = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
     parser = StrOutputParser()
     chain = prompt | model | parser
+
+    input_schema = chain.input_schema.model_json_schema()
+    output_schema = chain.output_schema.model_json_schema()
+    print(f"Input schema: {input_schema}")
+    print(f"Output schema: {output_schema}")
+
     return chain
 
 def main():
