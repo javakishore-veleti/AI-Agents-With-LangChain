@@ -1,0 +1,36 @@
+Patient Name: John Smith, Age 76, Male
+Date: Dec 11, 2019
+
+######################################
+COMPLETE BLOOD COUNT (CBC):::
+######################################
+Hemoglobin          : 
+Hematocrit          :
+WBC                 :
+Platelets           :
+
+###################
+LIPID PANEL:::
+###################
+Total Cholestrol    :
+LDL Cholestrol      :
+HDL Cholestrol      :
+Triglycerides       :
+
+###################
+METABOLIC PANEL:::
+###################
+Glucose (Fasting)   :
+HbA1c               :
+Creatinine          :
+eGFR                :
+
+###################
+LIVER FUNCTION:::
+###################
+ALT:               33 U/L           (Normal: 7–40)
+AST:               21 U/L           (Normal: 10–40)
+Bilirubin Total:   0.9 mg/dL        (Normal: 0.2–1.2)
+
+Reviewing Physician: Dr. Smith J
+

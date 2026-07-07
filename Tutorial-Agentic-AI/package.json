@@ -4,6 +4,7 @@
     "description": "Tutorial for Agentic AI",
     "main": "index.js",
     "scripts": {
-        "run-1": "uv run 1_simple_llm_calling/main.py"
+        "run-1": "uv run 1_simple_llm_calling/main.py",
+        "run-2": "uv run 2_health_analysis/main.py"
     }
 }
