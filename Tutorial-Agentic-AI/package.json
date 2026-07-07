@@ -1,0 +1,9 @@
+{
+    "name": "tutorial-agentic-ai",
+    "version": "1.0.0",
+    "description": "Tutorial for Agentic AI",
+    "main": "index.js",
+    "scripts": {
+        "run-1": "uv run 1_simple_llm_calling/main.py"
+    }
+}
