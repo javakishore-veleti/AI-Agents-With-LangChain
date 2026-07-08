@@ -1,0 +1,11 @@
+{
+  "name": "ai-agents-with-langchain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local development scripts for AI Agents With LangChain",
+  "scripts": {
+    "local:containers:start": "bash DevOps/Local/docker-all-run.sh",
+    "local:containers:stop": "bash DevOps/Local/docker-all-stop.sh",
+    "local:containers:status": "bash DevOps/Local/docker-all-status.sh"
+  }
+}
