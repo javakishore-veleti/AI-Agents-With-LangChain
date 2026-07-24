@@ -1,9 +1,9 @@
-name: local-chromadb
+name: ai-agents-with-langchain
 
 services:
   chromadb:
     image: chromadb/chroma:latest
-    container_name: local-chromadb
+    container_name: ai-agents-with-langchain-chromadb
     ports:
       - "8000:8000"
     volumes:

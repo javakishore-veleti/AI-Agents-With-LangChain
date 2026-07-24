@@ -1,9 +1,9 @@
-name: local-mongodb
+name: ai-agents-with-langchain
 
 services:
   mongodb:
     image: mongo:7
-    container_name: local-mongodb
+    container_name: ai-agents-with-langchain-mongodb
     ports:
       - "27017:27017"
     volumes:

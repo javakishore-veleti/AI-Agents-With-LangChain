@@ -2,12 +2,13 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-COMPOSE_DIRS=("ChromDB" "MongoDB")
+PROJECT_NAME="ai-agents-with-langchain"
+COMPOSE_DIRS=("ChromDB" "MongoDB" "Postgres" "PgVector")
 
 for dir in "${COMPOSE_DIRS[@]}"; do
   compose_file="${SCRIPT_DIR}/${dir}/docker-compose.yaml"
   echo "Starting containers in ${dir}..."
-  docker compose -f "${compose_file}" up -d
+  docker compose -p "${PROJECT_NAME}" -f "${compose_file}" up -d
 done
 
-echo "All local containers started."
+echo "All ${PROJECT_NAME} containers started."

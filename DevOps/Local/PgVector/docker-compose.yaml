@@ -1,0 +1,24 @@
+name: ai-agents-with-langchain
+
+services:
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: ai-agents-with-langchain-pgvector
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: vectors
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d vectors"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  pgvector_data:
