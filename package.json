@@ -6,6 +6,9 @@
   "scripts": {
     "local:containers:start": "bash DevOps/Local/docker-all-run.sh",
     "local:containers:stop": "bash DevOps/Local/docker-all-stop.sh",
-    "local:containers:status": "bash DevOps/Local/docker-all-status.sh"
+    "local:containers:status": "bash DevOps/Local/docker-all-status.sh",
+    "local:n8n:start": "bash DevOps/Local/n8n-start.sh",
+    "local:n8n:stop": "bash DevOps/Local/n8n-stop.sh",
+    "local:n8n:status": "bash DevOps/Local/n8n-status.sh"
   }
 }
