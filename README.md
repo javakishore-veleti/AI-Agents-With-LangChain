@@ -46,3 +46,26 @@ npm run local:n8n:stop
 These defaults live in `DevOps/Local/n8n/.env` (gitignored) and `DevOps/Local/n8n/.env.example`.
 
 Change them in `.env` before the first `npm run local:n8n:start` if you want different credentials. Do not change `N8N_ENCRYPTION_KEY` after you have saved credentials in n8n.
+
+### Versioned workflows (auto-import on start)
+
+Workflows live in `DevOps/Local/n8n/workflows/*.json` and are imported automatically by `npm run local:n8n:start`.
+
+```bash
+# After you change a workflow in the UI, export it back to git:
+npm run local:n8n:export-workflows
+
+# Then commit DevOps/Local/n8n/workflows/
+```
+
+On a **fresh** n8n (new Postgres `n8n` DB / new volume):
+
+1. `npm run local:n8n:start` creates the owner and imports workflows
+2. Open http://localhost:5678 and **re-create credentials** (secrets are not committed):
+   - Ollama: `http://host.docker.internal:11434`
+   - Postgres: `ai-agents-with-langchain-postgres:5432` / db `app`
+   - PGVector: `ai-agents-with-langchain-pgvector:5432` / db `vectors`
+   - User/password: `postgres` / `postgres`
+3. Re-attach those credentials on the imported workflow nodes
+
+Do **not** commit decrypted credential exports (they contain passwords).
