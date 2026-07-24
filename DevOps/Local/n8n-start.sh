@@ -134,9 +134,12 @@ docker compose -p "${PROJECT_NAME}" -f "${N8N_COMPOSE}" up -d --force-recreate
 wait_for_n8n
 auto_create_owner
 
+echo "Importing local-stack credentials (if any)..."
+bash "${SCRIPT_DIR}/n8n-import-credentials.sh" || true
+
 echo "Importing versioned workflows (if any)..."
 bash "${SCRIPT_DIR}/n8n-import-workflows.sh" || true
 
 echo "n8n ready: ${N8N_URL}"
 echo "Login: ${N8N_OWNER_EMAIL} / (password from DevOps/Local/n8n/.env)"
-echo "Note: re-create Ollama/Postgres credentials in the UI after a fully fresh DB; workflow JSON does not store secrets."
+echo "Local credentials seeded: Ollama, Postgres (app), PGVector (vectors)."

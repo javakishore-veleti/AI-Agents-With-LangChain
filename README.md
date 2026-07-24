@@ -51,6 +51,16 @@ Change them in `.env` before the first `npm run local:n8n:start` if you want dif
 
 Workflows live in `DevOps/Local/n8n/workflows/*.json` and are imported automatically by `npm run local:n8n:start`.
 
+Local Docker credentials are also seeded automatically from `DevOps/Local/n8n/credentials/local-stack.json`:
+
+| Credential name | Points to |
+|-----------------|-----------|
+| `Ollama account` | `http://host.docker.internal:11434` |
+| `Postgres account` | `ai-agents-with-langchain-postgres:5432` / db `app` |
+| `Postgres account 2` | `ai-agents-with-langchain-pgvector:5432` / db `vectors` |
+
+These use the same local usernames/passwords as the compose files (`postgres` / `postgres`). Fine for local dev; do not use this pattern for production secrets.
+
 ```bash
 # After you change a workflow in the UI, export it back to git:
 npm run local:n8n:export-workflows
@@ -60,12 +70,8 @@ npm run local:n8n:export-workflows
 
 On a **fresh** n8n (new Postgres `n8n` DB / new volume):
 
-1. `npm run local:n8n:start` creates the owner and imports workflows
-2. Open http://localhost:5678 and **re-create credentials** (secrets are not committed):
-   - Ollama: `http://host.docker.internal:11434`
-   - Postgres: `ai-agents-with-langchain-postgres:5432` / db `app`
-   - PGVector: `ai-agents-with-langchain-pgvector:5432` / db `vectors`
-   - User/password: `postgres` / `postgres`
-3. Re-attach those credentials on the imported workflow nodes
+1. `npm run local:n8n:start` creates the owner, imports credentials, imports workflows
+2. Open http://localhost:5678 — **My AI Agent** should already have credentials attached
+3. Activate the workflow if needed
 
-Do **not** commit decrypted credential exports (they contain passwords).
+Still required on each machine: Docker stacks running + Ollama with models (e.g. `nomic-embed-text`, chat models).

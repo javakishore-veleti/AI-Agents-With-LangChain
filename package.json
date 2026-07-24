@@ -11,6 +11,7 @@
     "local:n8n:stop": "bash DevOps/Local/n8n-stop.sh",
     "local:n8n:status": "bash DevOps/Local/n8n-status.sh",
     "local:n8n:export-workflows": "bash DevOps/Local/n8n-export-workflows.sh",
-    "local:n8n:import-workflows": "bash DevOps/Local/n8n-import-workflows.sh"
+    "local:n8n:import-workflows": "bash DevOps/Local/n8n-import-workflows.sh",
+    "local:n8n:import-credentials": "bash DevOps/Local/n8n-import-credentials.sh"
   }
 }
